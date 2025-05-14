@@ -19,6 +19,7 @@ router.post("/", jwtAuthMiddleware, async (req, res) => {
       return res.status(403).json({ message: "user has not admin role" });
     }
     const data = req.body;
+    console.log(data)
     const newCandidate = new Candidate(data);
     const response = await newCandidate.save();
     res.status(200).json({ response });

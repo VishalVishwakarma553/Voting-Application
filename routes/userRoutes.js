@@ -18,6 +18,7 @@ router.route("/signup").post(async (req, res) => {
       return res.status(403).json({message: 'multiple admins are not allowed'})
     }
     const data = req.body;
+    console.log(data)
     const newUser = new User(data);
     const response = await newUser.save();
     const payload = {

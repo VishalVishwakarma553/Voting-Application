@@ -13,12 +13,12 @@ const jwtAuthMiddleware = (req, res, next) => {
     next();
   } catch (err) {
     console.log(err);
-    res.status.json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
 const generateToken = (userData) => {
-  return jwt.sign(userData, process.env.JWT_SECRET, { expiresIn: 30000 });
+  return jwt.sign(userData, process.env.JWT_SECRET, { expiresIn: "2d" });
 };
 
 module.exports = {

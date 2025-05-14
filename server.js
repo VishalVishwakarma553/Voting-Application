@@ -7,7 +7,9 @@ app.use(bodyParser.json());
 
 const userRoutes = require("./routes/userRoutes");
 app.use("/user", userRoutes);
-
+app.get("/", (req, res) => {
+  res.send({message: "Trying ...."})
+})
 const candidateRoutes = require('./routes/candidateRoutes')
 app.use("/candidate", candidateRoutes)
 const PORT = process.env.PORT || 3000;
